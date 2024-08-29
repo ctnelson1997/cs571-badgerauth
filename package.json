@@ -1,5 +1,5 @@
 {
-  "name": "cs571-badgerauth",
+  "name": "@cs571/badgerauth",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,26 +13,38 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@cs571/api-framework": "0.4.3",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "errorhandler": "^1.5.1",
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "express-rate-limit": "^6.7.0",
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
-    "sqlite": "^4.2.1",
-    "sqlite3": "^5.1.6"
+    "mysql2": "^3.6.0",
+    "nodemailer": "^6.9.4",
+    "sequelize": "^6.32.1"
   },
   "devDependencies": {
-    "@types/express": "^4.17.17",
+    "@types/cookie": "0.6.0",
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
     "@types/express-rate-limit": "^6.0.0",
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/morgan": "^1.9.4",
     "@types/node": "^20.3.3",
+    "@types/nodemailer": "^6.4.9",
+    "@types/sequelize": "^4.28.15",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
     "concurrently": "^8.2.0",
     "eslint": "^8.44.0",
     "nodemon": "^2.0.22",
     "typescript": "^5.1.6"
+  },
+  "overrides": {
+    "cookie": "0.6.0",
+    "@types/cookie": "0.6.0"
   }
 }

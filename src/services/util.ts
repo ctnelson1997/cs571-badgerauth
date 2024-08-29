@@ -1,6 +1,16 @@
+import crypto from 'crypto'
+
 export class Util {
-    public static getDateForLogging(): string {
-        const dt = new Date().toString().replace(/[A-Z]{3}\+/, '+').split(/ /);
-        return `${dt[2]}/${dt[1]}/${dt[3]}:${dt[4]} ${dt[5]}`;
+    public static generateBadgerId(): string {
+        return "bid_" + crypto.randomBytes(32).toString('hex');
     }
+
+    // https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
+    public static validateEmail(email: string): boolean {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            ) ? true : false;
+    };
 }

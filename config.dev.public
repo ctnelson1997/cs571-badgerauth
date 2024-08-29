@@ -1,0 +1,9 @@
+{
+    "SESSION_LENGTH": 3600,
+    "TIMEOUT_WINDOW_LENGTH": 30,
+    "TIMEOUT_WINDOW_REQS": 100,
+    "ENABLE_CAPTCHA": false,
+    "IS_REMOTELY_HOSTED": false,
+    "IS_WISC_ONLY": true,
+    "HOST": ""
+}
