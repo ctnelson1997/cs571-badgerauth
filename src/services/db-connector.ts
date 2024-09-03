@@ -82,7 +82,7 @@ export class CS571DbConnector {
     public async isEmailTrulyAllowed(email: string) {
         const isDenied = await this.isEmailDenial(email);
         if (!isDenied) {
-            const isBaseAllowed = this.config.PUBLIC_CONFIG.IS_WISC_ONLY ? CS571Emailer.isWiscEmail(email) : CS571Emailer.isAnyEduEmail(email);
+            const isBaseAllowed = this.config.PUBLIC_CONFIG.IS_WISC_ONLY ? CS571Emailer.isWiscEmail(email) : (CS571Emailer.isValidEmail(email) && !CS571Emailer.isWiscEmail(email));
             if (isBaseAllowed) {
                 return true;
             } else {
