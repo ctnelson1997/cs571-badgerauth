@@ -8,6 +8,8 @@ ENV CS571_PUBLIC_CONFIG_PATH=/cs571/config.prod.public
 ENV CS571_PRIVATE_CONFIG_PATH=/cs571/config.prod.secret
 ENV PORT=37199
 
+ENV USE_LOKI=false
+
 COPY LICENSE LICENSE
 COPY tsconfig.json tsconfig.json
 COPY .eslintrc.json .eslintrc.json
