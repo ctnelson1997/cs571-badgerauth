@@ -17,10 +17,9 @@ export class CS571VerifyBidRoute implements CS571Route {
         app.get(CS571VerifyBidRoute.ROUTE_NAME, (req, res) => {
             const xid = req.header('X-CS571-ID')
             if (xid) {
-                if (this.connector.isValidBID(xid)) {
-                    res.status(200).send({
-                        name: "Known"
-                    });
+                const bid = this.connector.getBadgerIdFromCache(xid);
+                if (bid) {
+                    res.status(200).send(bid);
                 } else {
                     res.status(401).send({
                         msg: 'That is not a valid Badger ID!'

@@ -37,7 +37,7 @@ export class CS571DbConnector {
 
     public async init() {
         await this.sequelize.authenticate();
-        this.badgerIdTable = await this.sequelize.define("BadgerId", {
+        this.badgerIdTable = this.sequelize.define("BadgerId", {
             bid: {
                 type: DataTypes.STRING(128),
                 primaryKey: true,
@@ -63,7 +63,7 @@ export class CS571DbConnector {
         });
         await this.sequelize.sync()
         await this.syncCache();
-        this.allowEmailTable = await this.sequelize.define("EmailException", {
+        this.allowEmailTable = this.sequelize.define("EmailException", {
             email: {
                 type: DataTypes.STRING(255),
                 primaryKey: true,
@@ -72,7 +72,7 @@ export class CS571DbConnector {
             }
         });
         await this.sequelize.sync()
-        this.denyEmailTable = await this.sequelize.define("EmailDenial", {
+        this.denyEmailTable = this.sequelize.define("EmailDenial", {
             email: {
                 type: DataTypes.STRING(255),
                 primaryKey: true,
@@ -174,6 +174,11 @@ export class CS571DbConnector {
         } else {
             return false;
         }
+    }
+
+    public getBadgerIdFromCache(bid: string): BadgerId | undefined {
+        const foundBid = this.cachedIds.find(cid => cid.bid === bid);
+        return foundBid;
     }
 
     public isValidBID(bid: string): boolean {
